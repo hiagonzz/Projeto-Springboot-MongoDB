@@ -5,5 +5,6 @@ public class ObjectNotException extends RuntimeException {
 
     public ObjectNotException(String msg){
         super(msg);
+
     }
 }

@@ -5,7 +5,7 @@ import com.Hiagodev.StudentMongo.domain.User;
 import java.io.Serializable;
 
 public class UserDTO implements Serializable {
-    public static final long serialVersionUID = 1l;
+    private static final long serialVersionUID = 1l;
 
     private String id;
     private String name;

@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Document(collection = "user")
 public class User implements Serializable {
-    public static final long serialVersionUID = 1l;
+    private static final long serialVersionUID = 1l;
     @Id
     private String id;
     private String name;

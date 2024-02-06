@@ -1,6 +1,7 @@
 package com.Hiagodev.StudentMongo.resources;
 
 
+import com.Hiagodev.StudentMongo.domain.Post;
 import com.Hiagodev.StudentMongo.domain.User;
 import com.Hiagodev.StudentMongo.dto.UserDTO;
 import com.Hiagodev.StudentMongo.services.UserService;
@@ -60,5 +61,11 @@ public class UserResource {
         service.delete(id);
 
         return ResponseEntity.noContent().build();
+    }
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 }

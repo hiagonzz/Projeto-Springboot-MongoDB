@@ -2,6 +2,7 @@ package com.Hiagodev.StudentMongo.config;
 
 import com.Hiagodev.StudentMongo.domain.Post;
 import com.Hiagodev.StudentMongo.domain.User;
+import com.Hiagodev.StudentMongo.dto.AuthorDTO;
 import com.Hiagodev.StudentMongo.repository.PostRepository;
 import com.Hiagodev.StudentMongo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,14 @@ public class Instantiation implements CommandLineRunner {
         User maria = new User(null, "Maria Brown", "maria@gmail.com");
         User alex = new User(null, "Alex Green", "alex@gmail.com");
         User bob = new User(null, "Bob Grey", "bob@gmail.com");
-
-        Post post1 = new Post(null, sdf.parse("18/10/1998"), "Partiu viagem", "Vou viajar para são paulo Abraços!", maria);
-        Post post2 = new Post(null, sdf.parse("20/2/2021"), "bom dia", "Acordei feliz hoje", maria);
-
-
+        
         userRepository.saveAll(Arrays.asList(maria, alex, bob));
+
+        Post post1 = new Post(null, sdf.parse("18/10/1998"), "Partiu viagem", "Vou viajar para são paulo Abraços!", new AuthorDTO(maria));
+        Post post2 = new Post(null, sdf.parse("20/2/2021"), "bom dia", "Acordei feliz hoje", new AuthorDTO(maria));
+
+
+
         postRepository.saveAll(Arrays.asList(post1, post2));
     }
 }

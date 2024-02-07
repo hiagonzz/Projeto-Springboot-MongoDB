@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.ListResourceBundle;
 
 @Service
 public class PostService {
@@ -23,5 +24,8 @@ public class PostService {
             throw new ObjectNotException("Objeto não encontrado");
         }
         return user;
+    }
+    public List<Post> findByTitle(String text){
+        return repo.findByTitleContaningIgnoreCase(text);
     }
 }
